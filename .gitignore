@@ -2,3 +2,4 @@
 .*
 gradle*
 settings.gradle
+build/
