@@ -1,0 +1,5 @@
+!.gitignore
+.*
+gradle*
+settings.gradle
+build/
