@@ -1,5 +1,6 @@
 !.gitignore
 .*
-gradle*
+gradle/
+gradlew*
 settings.gradle
 build/

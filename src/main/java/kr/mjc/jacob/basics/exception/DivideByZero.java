@@ -13,7 +13,13 @@ public class DivideByZero {
     System.out.print("Input divisor : ");
     divisor = scanner.nextInt();
 
-    System.out.format("%d / %d = %d\n", dividend, divisor, dividend / divisor);
+    try {
+      System.out.format("%d / %d = %d\n", dividend, divisor,
+          dividend / divisor);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
     scanner.close();
   }
 }
