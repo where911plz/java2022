@@ -1,5 +1,6 @@
 package kr.mjc.jacob.basics.exception;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -8,12 +9,12 @@ public class FileReaderMain {
   public static void main(String[] args) {
 
     try {
-      FileReader in = new FileReader("build.gradle");
-      int ch;
-      while ((ch = in.read()) != -1) {
-        System.out.print((char) ch);
+      BufferedReader buf = new BufferedReader(new FileReader("build.gradle"));
+      String line;
+      while ((line = buf.readLine()) != null) {
+        System.out.println(line);
       }
-      in.close();
+      buf.close();
     } catch (IOException e) {
       System.err.println(e);
     }

@@ -3,9 +3,9 @@ package kr.mjc.jacob.basics.exception;
 import java.util.Scanner;
 
 /**
- * 예제 3-14 0으로 나누기 예외 발생으로 프로그램이 강제 종료되는 경우
+ * 예제 3-15 0으로 나눌 때 발생하는 ArithmeticException 예외 처리
  */
-public class DivideByZero {
+public class DivideByZeroHandling {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 
@@ -14,9 +14,12 @@ public class DivideByZero {
     System.out.print("Input divisor : ");
     int divisor = scanner.nextInt();
 
-    System.out.format("%d / %d = %d\n", dividend, divisor,
-        dividend / divisor);
-
+    try {
+      System.out.format("%d / %d = %d\n", dividend, divisor,
+          dividend / divisor);
+    } catch (ArithmeticException e) {
+      e.printStackTrace();
+    }
     scanner.close();
     System.out.println("scanner를 닫고 프로그램을 종료합니다.");
   }
