@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 
 /**
  * ListOfNumbers example of The Java Tutorials
+ *
  * @see <a href="https://docs.oracle.com/javase/tutorial/essential/exceptions/handling.html">https://docs.oracle.com/javase/tutorial/essential/exceptions/handling.html</a>
  */
 public class ListOfNumbers {
@@ -26,16 +27,13 @@ public class ListOfNumbers {
   /**
    * OutFile.txt에 list의 값들을 출력한다.
    */
-  public void writeList() {
-    try {
-      PrintWriter out = new PrintWriter(new FileWriter("OutFile.txt"));
-
+  public void writeList() throws MyIOException {
+    try (PrintWriter out = new PrintWriter(new FileWriter("OutFile.txt"))) {
       for (int i = 0; i < SIZE; i++) {
         out.format("Value at: %d = %d\n", i, list[i]);
       }
-      out.close();
     } catch (IOException e) {
-      e.printStackTrace();
+      throw new MyIOException(e);
     }
   }
 
