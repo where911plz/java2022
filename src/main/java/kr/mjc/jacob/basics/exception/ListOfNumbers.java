@@ -11,37 +11,37 @@ import java.io.PrintWriter;
  */
 public class ListOfNumbers {
 
-  private int[] list;
-  private static final int SIZE = 10;
+	private int[] list;
+	private static final int SIZE = 10;
 
-  /**
-   * Default contstructor. list를 초기화한다.
-   */
-  public ListOfNumbers() {
-    list = new int[SIZE];
-    for (int i = 0; i < SIZE; i++) {
-      list[i] = i;
-    }
-  }
+	/**
+	 * Default contstructor. list를 초기화한다.
+	 */
+	public ListOfNumbers() {
+		list = new int[SIZE];
+		for (int i = 0; i < SIZE; i++) {
+			list[i] = i;
+		}
+	}
 
-  /**
-   * OutFile.txt에 list의 값들을 출력한다.
-   */
-  public void writeList() throws MyIOException {
-    try (PrintWriter out = new PrintWriter(new FileWriter("OutFile.txt"))) {
-      for (int i = 0; i < SIZE; i++) {
-        out.format("Value at: %d = %d\n", i, list[i]);
-      }
-    } catch (IOException e) {
-      throw new MyIOException(e);
-    }
-  }
+	/**
+	 * OutFile.txt에 list의 값들을 출력한다.
+	 */
+	public void writeList() throws MyIOException {
+		try (PrintWriter out = new PrintWriter(new FileWriter("OutFile.txt"))) {
+			for (int i = 0; i < SIZE; i++) {
+				out.format("Value at: %d = %d\n", i, list[i]);
+			}
+		} catch (IOException e) {
+			throw new MyIOException(e);
+		}
+	}
 
-  /**
-   * ListOfNumbers를 테스트하는 main() 메서드
-   */
-  public static void main(String[] args) {
-    ListOfNumbers listOfNumbers = new ListOfNumbers();
-    listOfNumbers.writeList();
-  }
+	/**
+	 * ListOfNumbers를 테스트하는 main() 메서드
+	 */
+	public static void main(String[] args) {
+		ListOfNumbers listOfNumbers = new ListOfNumbers();
+		listOfNumbers.writeList();
+	}
 }
