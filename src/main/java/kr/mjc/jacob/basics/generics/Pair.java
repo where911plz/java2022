@@ -1,18 +1,14 @@
 package kr.mjc.jacob.basics.generics;
 
 /**
- * A Simple Box Class
+ * Multiple type parameters
  *
+ * @param <K> Key
+ * @param <V> Value
  * @see <a href="https://docs.oracle.com/javase/tutorial/java/generics/types.html">https://docs.oracle.com/javase/tutorial/java/generics/types.html</a>
  */
-public class Box {
-  private Object object;
+public interface Pair<K, V> {
+  K getKey();
 
-  public void set(Object object) {
-    this.object = object;
-  }
-
-  public Object get() {
-    return object;
-  }
+  V getValue();
 }

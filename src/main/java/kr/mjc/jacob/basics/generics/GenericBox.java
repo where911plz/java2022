@@ -16,19 +16,4 @@ public class GenericBox<T> {
   public T get() {
     return t;
   }
-
-  public static void main(String[] args) {
-    GenericBox<Integer> integerBox =
-        new GenericBox<>(); // Diamond: Type inference
-    integerBox.set(5);
-    int i = integerBox.get();
-
-    GenericBox<String> stringBox = new GenericBox<>();
-    stringBox.set("abc");
-    String s = stringBox.get();
-
-    // compile error
-    // integerBox.set("abc");
-    // stringBox.set(5);
-  }
 }
