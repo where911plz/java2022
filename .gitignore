@@ -1,6 +1,7 @@
 !.gitignore
 .*
 *.txt
+*.log
 gradle/
 gradlew*
 settings.gradle
