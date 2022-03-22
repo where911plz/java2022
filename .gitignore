@@ -6,3 +6,4 @@ gradle/
 gradlew*
 settings.gradle
 build/
+htmls/
