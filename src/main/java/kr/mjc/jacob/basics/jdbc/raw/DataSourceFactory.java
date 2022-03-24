@@ -15,14 +15,13 @@ import java.util.Properties;
 public class DataSourceFactory {
 
   public static DataSource getDataSource() {
-    DataSource ds = null;
     Properties props = new Properties();
     try {
       props.load(DataSourceFactory.class.getResourceAsStream("/db.properties"));
-      ds = new MariaDbDataSource(props.getProperty("url"));
+      return new MariaDbDataSource(props.getProperty("url"));
     } catch (IOException | SQLException e) {
       log.error(e.toString());
+      throw new RuntimeException(e);
     }
-    return ds;
   }
 }
