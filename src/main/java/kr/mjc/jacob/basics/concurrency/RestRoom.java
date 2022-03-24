@@ -7,12 +7,16 @@ package kr.mjc.jacob.basics.concurrency;
  */
 public class RestRoom {
 	public void use(long time1, long time2) {
-		System.out.format("%s : 화장실에 들어갔다.\n", Thread.currentThread().getName());
-		try {
-			Thread.sleep(time1);
-		} catch (InterruptedException e) {
+		synchronized (this) {
+			System.out.format("%s : 화장실에 들어갔다.\n",
+					Thread.currentThread().getName());
+			try {
+				Thread.sleep(time1);
+			} catch (InterruptedException e) {
+			}
+			System.out.format("%s : 화장실에서 나왔다.\n",
+					Thread.currentThread().getName());
 		}
-		System.out.format("%s : 화장실에서 나왔다.\n", Thread.currentThread().getName());
 
 		try {
 			Thread.sleep(time2);
