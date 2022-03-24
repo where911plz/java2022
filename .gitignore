@@ -7,3 +7,4 @@ gradlew*
 settings.gradle
 build/
 htmls/
+db.properties
