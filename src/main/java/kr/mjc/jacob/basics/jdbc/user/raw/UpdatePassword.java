@@ -18,7 +18,7 @@ public class UpdatePassword {
   public static void main(String[] args) {
     DataSource ds = DataSourceFactory.getDataSource();
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Update password - userId oldPassword newPassword : ");
+    System.out.print("Update password - userId currentPassword newPassword : ");
     // 입력
     Object[] params = {scanner.nextInt(), scanner.next(), scanner.next()};
     try (Connection con = ds.getConnection();
