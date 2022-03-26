@@ -1,6 +1,6 @@
 package kr.mjc.jacob.basics.jdbc.helper;
 
-import kr.mjc.jacob.basics.jdbc.User;
+import kr.mjc.jacob.basics.jdbc.user.User;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;

@@ -1,6 +1,7 @@
-package kr.mjc.jacob.basics.jdbc.raw;
+package kr.mjc.jacob.basics.jdbc.user.raw;
 
-import kr.mjc.jacob.basics.jdbc.User;
+import kr.mjc.jacob.basics.jdbc.DataSourceFactory;
+import kr.mjc.jacob.basics.jdbc.user.User;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.sql.DataSource;
@@ -10,8 +11,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+/**
+ * 이메일과 비밀번호로 로그인 한다.
+ */
 @Slf4j
-public class UserLogin {
+public class Login {
   public static void main(String[] args) {
 
     DataSource ds = DataSourceFactory.getDataSource();
@@ -19,8 +23,8 @@ public class UserLogin {
     System.out.print("Login - email password : ");
     // 입력
     String[] params = {scanner.next(), scanner.next()};
-    try (Connection con = ds.getConnection();
-         PreparedStatement ps = con.prepareStatement(
+    try (Connection conn = ds.getConnection();
+         PreparedStatement ps = conn.prepareStatement(
              "select userId, email, name from user where email=? and password=sha2(?,256)")) {
       ps.setString(1, params[0]);
       ps.setString(2, params[1]);

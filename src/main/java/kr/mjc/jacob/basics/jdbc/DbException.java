@@ -1,4 +1,4 @@
-package kr.mjc.jacob.basics.jdbc.helper;
+package kr.mjc.jacob.basics.jdbc;
 
 public class DbException extends RuntimeException {
 	public DbException() {

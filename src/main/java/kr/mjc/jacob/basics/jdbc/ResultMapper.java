@@ -1,4 +1,4 @@
-package kr.mjc.jacob.basics.jdbc.helper;
+package kr.mjc.jacob.basics.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

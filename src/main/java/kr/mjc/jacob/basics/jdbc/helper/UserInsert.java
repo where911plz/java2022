@@ -1,5 +1,6 @@
 package kr.mjc.jacob.basics.jdbc.helper;
 
+import kr.mjc.jacob.basics.jdbc.DbException;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Scanner;

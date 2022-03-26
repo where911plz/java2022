@@ -1,7 +1,8 @@
 package kr.mjc.jacob.basics.jdbc.helper;
 
-import kr.mjc.jacob.basics.jdbc.User;
-import kr.mjc.jacob.basics.jdbc.raw.DataSourceFactory;
+import kr.mjc.jacob.basics.jdbc.DbHelper;
+import kr.mjc.jacob.basics.jdbc.user.User;
+import kr.mjc.jacob.basics.jdbc.DataSourceFactory;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

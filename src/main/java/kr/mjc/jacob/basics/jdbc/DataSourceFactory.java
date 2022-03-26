@@ -1,4 +1,4 @@
-package kr.mjc.jacob.basics.jdbc.raw;
+package kr.mjc.jacob.basics.jdbc;
 
 import lombok.extern.slf4j.Slf4j;
 import org.mariadb.jdbc.MariaDbDataSource;

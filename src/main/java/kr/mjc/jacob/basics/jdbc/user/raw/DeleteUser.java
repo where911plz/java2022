@@ -1,5 +1,6 @@
-package kr.mjc.jacob.basics.jdbc.raw;
+package kr.mjc.jacob.basics.jdbc.user.raw;
 
+import kr.mjc.jacob.basics.jdbc.DataSourceFactory;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.sql.DataSource;
@@ -9,27 +10,28 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
- * 회원 삭제
+ * userId와 password로 회원 삭제
  */
 @Slf4j
-public class UserDelete {
+public class DeleteUser {
 
   public static void main(String[] args) {
     DataSource ds = DataSourceFactory.getDataSource();
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Delete - userId : ");
+    System.out.print("Delete - userId password : ");
     // 입력
-    String[] params = {scanner.next()};
+    Object[] params = {scanner.nextInt(), scanner.next()};
     try (Connection con = ds.getConnection();
          PreparedStatement ps = con.prepareStatement(
-             "delete from user where userId=?")) {
-      ps.setString(1, params[0]);
+             "delete from user where userId=? and password=sha2(?,256)")) {
+      ps.setObject(1, params[0]);
+      ps.setObject(2, params[1]);
       int updatedRows = ps.executeUpdate();
 
-      if (updatedRows == 1)
+      if (updatedRows >= 1)
         log.debug("삭제 성공. userId={}", params[0]);
       else
-        log.debug("회원 없음. userId={}", params[0]);
+        log.debug("삭제 실패. userId={}", params[0]);
 
     } catch (SQLException e) {
       log.error(e.toString());
