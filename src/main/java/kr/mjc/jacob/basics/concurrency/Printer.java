@@ -6,15 +6,15 @@ package kr.mjc.jacob.basics.concurrency;
  * @author Jacob
  */
 public class Printer {
-	public void println(String str) {
-		for (char c : str.toCharArray()) {
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			System.out.print(c);
-		}
-		System.out.println();
-	}
+  public void println(String str) {
+    for (char c : str.toCharArray()) {
+      try {
+        Thread.sleep(10);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+      System.out.print(c);
+    }
+    System.out.println();
+  }
 }

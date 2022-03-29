@@ -9,22 +9,22 @@ import java.util.List;
  * 동기화가 필요없는 목록에는 ArrayList를 사용한다.
  */
 public class ListEx {
-	public static void main(String[] args) {
-		List<Integer> list = new ArrayList<>();
-		list.add(5);
-		list.add(4);
-		list.add(-1);
+  public static void main(String[] args) {
+    List<Integer> list = new ArrayList<>();
+    list.add(5);
+    list.add(4);
+    list.add(-1);
 
-		System.out.println(list);
+    System.out.println(list);
 
-		for (int i = 0; i < list.size(); i++) {
-			int item = list.get(i);
-			System.out.println(item);
-		}
+    for (int i = 0; i < list.size(); i++) {
+      int item = list.get(i);
+      System.out.println(item);
+    }
 
-		// enhanced for
-		for (int item : list) {
-			System.out.println(item);
-		}
-	}
+    // enhanced for
+    for (int item : list) {
+      System.out.println(item);
+    }
+  }
 }

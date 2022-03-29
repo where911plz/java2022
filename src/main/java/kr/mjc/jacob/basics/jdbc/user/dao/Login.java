@@ -10,14 +10,14 @@ import java.util.Scanner;
  */
 @Slf4j
 public class Login {
-	public static void main(String[] args) {
-		UserDao userDao = new UserDaoImpl();
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Login - email password : ");
-		User user = userDao.login(scanner.next(), scanner.next());
-		if (user != null)
-			log.debug(user.toString());
-		else
-			log.debug("로그인 실패");
-	}
+  public static void main(String[] args) {
+    UserDao userDao = new UserDaoImpl();
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Login - email password : ");
+    User user = userDao.login(scanner.next(), scanner.next());
+    if (user != null)
+      log.debug(user.toString());
+    else
+      log.debug("로그인 실패");
+  }
 }

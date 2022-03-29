@@ -1,8 +1,8 @@
 package kr.mjc.jacob.basics.exception;
 
 public class HelloWorld {
-	public static void main(String[] args) {
-		System.out.println("Hello World!");
-		System.out.println("안녕하세요!");
-	}
+  public static void main(String[] args) {
+    System.out.println("Hello World!");
+    System.out.println("안녕하세요!");
+  }
 }

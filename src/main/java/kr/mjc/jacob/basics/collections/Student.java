@@ -1,18 +1,7 @@
 package kr.mjc.jacob.basics.collections;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
-
 /**
- * p.418 예제 7-7. 학생 클래스
+ * p.418 예제 7-7. 학생 레코드
  */
-@AllArgsConstructor
-@Getter
-@ToString
-@EqualsAndHashCode
-public class Student {
-	private int id;
-	private String name;
+public record Student(int id, String name) {
 }

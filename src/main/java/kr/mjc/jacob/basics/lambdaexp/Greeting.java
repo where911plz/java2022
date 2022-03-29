@@ -8,5 +8,5 @@ package kr.mjc.jacob.basics.lambdaexp;
 @FunctionalInterface
 public interface Greeting {
 
-	void greet(String name); // public abstract
+  void greet(String name); // public abstract
 }

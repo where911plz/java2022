@@ -5,29 +5,29 @@ package kr.mjc.jacob.basics.lambdaexp;
  */
 public class MethodReferenceTest {
 
-	public static void main(String[] args) {
-		new MethodReferenceTest().go();
-	}
+  public static void main(String[] args) {
+    new MethodReferenceTest().go();
+  }
 
-	static void sayStaticHello(String name) {
-		System.out.println("안녕하세요 Static " + name);
-	}
+  static void sayStaticHello(String name) {
+    System.out.println("안녕하세요 Static " + name);
+  }
 
-	void go() {
-		HelloMachine helloMachine = new HelloMachine();
+  void go() {
+    HelloMachine helloMachine = new HelloMachine();
 
-		// lambda expression
-		helloMachine.helloTwice(name -> System.out.println("Hello " + name),
-				"Rachel");
+    // lambda expression
+    helloMachine.helloTwice(name -> System.out.println("Hello " + name),
+        "Rachel");
 
-		// static method reference
-		helloMachine.helloTwice(MethodReferenceTest::sayStaticHello, "Rachel");
+    // static method reference
+    helloMachine.helloTwice(MethodReferenceTest::sayStaticHello, "Rachel");
 
-		// instance method reference
-		helloMachine.helloTwice(this::sayHello, "Rachel");
-	}
+    // instance method reference
+    helloMachine.helloTwice(this::sayHello, "Rachel");
+  }
 
-	void sayHello(String name) {
-		System.out.println("안녕하세요 " + name);
-	}
+  void sayHello(String name) {
+    System.out.println("안녕하세요 " + name);
+  }
 }

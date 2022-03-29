@@ -10,17 +10,15 @@ import java.util.Scanner;
 @Slf4j
 public class UpdatePassword {
 
-	public static void main(String[] args) {
-		UserDao userDao = new UserDaoImpl();
-		Scanner scanner = new Scanner(System.in);
-		System.out.print(
-				"Update password - userId currentPassword newPassword : ");
-		int updatedRows =
-				userDao.updatePassword(scanner.nextInt(), scanner.next(),
-						scanner.next());
-		if (updatedRows >= 1)
-			log.debug("수정 성공");
-		else
-			log.debug("수정 실패"); // 회원번호가 없거나 비밀번호 틀림
-	}
+  public static void main(String[] args) {
+    UserDao userDao = new UserDaoImpl();
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Update password - userId currentPassword newPassword : ");
+    int updatedRows = userDao.updatePassword(scanner.nextInt(), scanner.next(),
+        scanner.next());
+    if (updatedRows >= 1)
+      log.debug("수정 성공");
+    else
+      log.debug("수정 실패"); // 회원번호가 없거나 비밀번호 틀림
+  }
 }

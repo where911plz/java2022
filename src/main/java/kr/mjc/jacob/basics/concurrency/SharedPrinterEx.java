@@ -6,10 +6,10 @@ package kr.mjc.jacob.basics.concurrency;
  * @author Jacob
  */
 public class SharedPrinterEx {
-	public static void main(String[] args) {
-		final Printer printer = new Printer();
+  public static void main(String[] args) {
+    final Printer printer = new Printer();
 
-		new Thread(() -> printer.println("ABCDE")).start();
-		new Thread(() -> printer.println("abcde")).start();
-	}
+    new Thread(() -> printer.println("ABCDE")).start();
+    new Thread(() -> printer.println("abcde")).start();
+  }
 }

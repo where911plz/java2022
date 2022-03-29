@@ -14,15 +14,14 @@ import java.util.Properties;
 @Slf4j
 public class DataSourceFactory {
 
-	public static DataSource getDataSource() {
-		Properties props = new Properties();
-		try {
-			props.load(DataSourceFactory.class.getResourceAsStream(
-					"/db.properties"));
-			return new MariaDbDataSource(props.getProperty("url"));
-		} catch (IOException | SQLException e) {
-			log.error(e.toString());
-			throw new RuntimeException(e);
-		}
-	}
+  public static DataSource getDataSource() {
+    Properties props = new Properties();
+    try {
+      props.load(DataSourceFactory.class.getResourceAsStream("/db.properties"));
+      return new MariaDbDataSource(props.getProperty("url"));
+    } catch (IOException | SQLException e) {
+      log.error(e.toString());
+      throw new RuntimeException(e);
+    }
+  }
 }

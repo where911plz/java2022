@@ -6,12 +6,12 @@ package kr.mjc.jacob.basics.concurrency;
  * @author Jacob
  */
 public class SharedRestRoomEx {
-	public static void main(String[] args) {
+  public static void main(String[] args) {
 
-		final RestRoom restRoom = new RestRoom();
+    final RestRoom restRoom = new RestRoom();
 
-		new Thread(() -> restRoom.use(1000, 1000)).start();
-		new Thread(() -> restRoom.use(1000, 2000)).start();
-		new Thread(() -> restRoom.use(2000, 1000)).start();
-	}
+    new Thread(() -> restRoom.use(1000, 1000)).start();
+    new Thread(() -> restRoom.use(1000, 2000)).start();
+    new Thread(() -> restRoom.use(2000, 1000)).start();
+  }
 }
