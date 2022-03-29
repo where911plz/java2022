@@ -8,7 +8,7 @@ package kr.mjc.jacob.basics.generics;
  * @see <a href="https://docs.oracle.com/javase/tutorial/java/generics/types.html">https://docs.oracle.com/javase/tutorial/java/generics/types.html</a>
  */
 public interface Pair<K, V> {
-  K getKey();
+	K getKey();
 
-  V getValue();
+	V getValue();
 }

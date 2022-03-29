@@ -11,8 +11,8 @@ import java.io.PrintWriter;
  */
 public class ListOfNumbers {
 
-	private int[] list;
 	private static final int SIZE = 10;
+	private int[] list;
 
 	/**
 	 * Default contstructor. list를 초기화한다.
@@ -22,6 +22,14 @@ public class ListOfNumbers {
 		for (int i = 0; i < SIZE; i++) {
 			list[i] = i;
 		}
+	}
+
+	/**
+	 * ListOfNumbers를 테스트하는 main() 메서드
+	 */
+	public static void main(String[] args) {
+		ListOfNumbers listOfNumbers = new ListOfNumbers();
+		listOfNumbers.writeList();
 	}
 
 	/**
@@ -35,13 +43,5 @@ public class ListOfNumbers {
 		} catch (IOException e) {
 			throw new MyIOException(e);
 		}
-	}
-
-	/**
-	 * ListOfNumbers를 테스트하는 main() 메서드
-	 */
-	public static void main(String[] args) {
-		ListOfNumbers listOfNumbers = new ListOfNumbers();
-		listOfNumbers.writeList();
 	}
 }

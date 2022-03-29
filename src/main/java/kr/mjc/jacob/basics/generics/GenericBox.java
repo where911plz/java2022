@@ -7,13 +7,13 @@ package kr.mjc.jacob.basics.generics;
  * @see <a href="https://docs.oracle.com/javase/tutorial/java/generics/types.html">https://docs.oracle.com/javase/tutorial/java/generics/types.html</a>
  */
 public class GenericBox<T> {
-  private T t;
+	private T t;
 
-  public void set(T t) {
-    this.t = t;
-  }
+	public void set(T t) {
+		this.t = t;
+	}
 
-  public T get() {
-    return t;
-  }
+	public T get() {
+		return t;
+	}
 }

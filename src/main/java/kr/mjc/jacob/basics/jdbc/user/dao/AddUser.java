@@ -12,20 +12,20 @@ import java.util.Scanner;
 @Slf4j
 public class AddUser {
 
-  public static void main(String[] args) {
-    UserDao userDao = new UserDaoImpl();
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Insert - email password name : ");
-    User user = new User();
-    user.setEmail(scanner.next());
-    user.setPassword(scanner.next());
-    user.setName(scanner.next());
+	public static void main(String[] args) {
+		UserDao userDao = new UserDaoImpl();
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Insert - email password name : ");
+		User user = new User();
+		user.setEmail(scanner.next());
+		user.setPassword(scanner.next());
+		user.setName(scanner.next());
 
-    try {
-      userDao.addUser(user);
-      log.debug(user.toString());
-    } catch (DbException e) { // 이메일 중복인 경우
-      log.error(e.toString());
-    }
-  }
+		try {
+			userDao.addUser(user);
+			log.debug("저장 성공");
+		} catch (DbException e) { // 이메일 중복인 경우
+			log.error(e.toString());
+		}
+	}
 }

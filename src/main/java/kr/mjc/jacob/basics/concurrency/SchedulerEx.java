@@ -12,7 +12,8 @@ import java.util.concurrent.TimeUnit;
 public class SchedulerEx {
 
 	public static void main(String[] args) {
-		ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+		ScheduledExecutorService scheduler =
+				Executors.newScheduledThreadPool(1);
 		Runnable beeper = () -> System.out.print("beep ");
 
 		// (task, initialDeday, period, unit)

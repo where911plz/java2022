@@ -15,26 +15,26 @@ import java.util.Scanner;
 @Slf4j
 public class DeleteUser {
 
-  public static void main(String[] args) {
-    DataSource ds = DataSourceFactory.getDataSource();
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Delete - userId password : ");
-    // 입력
-    Object[] params = {scanner.nextInt(), scanner.next()};
-    try (Connection con = ds.getConnection();
-         PreparedStatement ps = con.prepareStatement(
-             "delete from user where userId=? and password=sha2(?,256)")) {
-      ps.setObject(1, params[0]);
-      ps.setObject(2, params[1]);
-      int updatedRows = ps.executeUpdate();
+	public static void main(String[] args) {
+		DataSource ds = DataSourceFactory.getDataSource();
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Delete - userId password : ");
+		// 입력
+		Object[] params = {scanner.nextInt(), scanner.next()};
+		try (Connection con = ds.getConnection();
+			 PreparedStatement ps = con.prepareStatement(
+					 "delete from user where userId=? and password=sha2(?,256)")) {
+			ps.setObject(1, params[0]);
+			ps.setObject(2, params[1]);
+			int updatedRows = ps.executeUpdate();
 
-      if (updatedRows >= 1)
-        log.debug("삭제 성공. userId={}", params[0]);
-      else
-        log.debug("삭제 실패. userId={}", params[0]);
+			if (updatedRows >= 1)
+				log.debug("삭제 성공. userId={}", params[0]);
+			else
+				log.debug("삭제 실패. userId={}", params[0]);
 
-    } catch (SQLException e) {
-      log.error(e.toString());
-    }
-  }
+		} catch (SQLException e) {
+			log.error(e.toString());
+		}
+	}
 }

@@ -7,21 +7,21 @@ package kr.mjc.jacob.basics.generics;
  */
 public class OrderedPair<K, V> implements Pair<K, V> {
 
-  private K key;
-  private V value;
+	private K key;
+	private V value;
 
-  public OrderedPair(K key, V value) {
-    this.key = key;
-    this.value = value;
-  }
+	public OrderedPair(K key, V value) {
+		this.key = key;
+		this.value = value;
+	}
 
-  @Override
-  public K getKey() {
-    return key;
-  }
+	@Override
+	public K getKey() {
+		return key;
+	}
 
-  @Override
-  public V getValue() {
-    return value;
-  }
+	@Override
+	public V getValue() {
+		return value;
+	}
 }

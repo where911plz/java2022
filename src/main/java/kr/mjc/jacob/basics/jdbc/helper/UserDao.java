@@ -1,8 +1,8 @@
 package kr.mjc.jacob.basics.jdbc.helper;
 
-import kr.mjc.jacob.basics.jdbc.DbHelper;
-import kr.mjc.jacob.basics.jdbc.user.User;
 import kr.mjc.jacob.basics.jdbc.DataSourceFactory;
+import kr.mjc.jacob.basics.jdbc.JdbcHelper;
+import kr.mjc.jacob.basics.jdbc.user.User;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +10,11 @@ import java.util.List;
 
 public class UserDao {
 
-	private DbHelper dbHelper;
+	private JdbcHelper dbHelper;
+
+	public UserDao() {
+		dbHelper = new JdbcHelper(DataSourceFactory.getDataSource());
+	}
 
 	private User mapResult(ResultSet rs) throws SQLException {
 		User user = new User();
@@ -18,10 +22,6 @@ public class UserDao {
 		user.setEmail(rs.getString("email"));
 		user.setName(rs.getString("name"));
 		return user;
-	}
-
-	public UserDao() {
-		dbHelper = new DbHelper(DataSourceFactory.getDataSource());
 	}
 
 	public List<User> listUsers(int count, int page) {

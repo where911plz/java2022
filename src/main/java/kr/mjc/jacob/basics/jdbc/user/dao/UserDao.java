@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface UserDao {
 
-  List<User> listUsers(int count, int page);
+	List<User> listUsers(int count, int page);
 
-  User getUser(int userId);
+	User getUser(int userId);
 
-  User login(String email, String password);
+	User login(String email, String password);
 
-  void addUser(User user);
+	void addUser(User user);
 
-  int updatePassword(int userId, String currentPassword, String newPassword);
+	int updatePassword(int userId, String currentPassword, String newPassword);
 
-  int deleteUser(int userId, String password);
+	int deleteUser(int userId, String password);
 }

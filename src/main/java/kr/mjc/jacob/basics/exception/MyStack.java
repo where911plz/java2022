@@ -20,33 +20,6 @@ public class MyStack {
 	}
 
 	/**
-	 * 스택에 오브젝트를 넣는다.
-	 *
-	 * @param obj 스택에 넣는 오브젝트
-	 * @throws StackOverflowException 스택의 크기를 초과할 때 던진다.
-	 */
-	public void push(Object obj) throws StackOverflowException {
-		if (position >= objects.length) throw new StackOverflowException();
-		objects[position++] = obj;
-	}
-
-	/**
-	 * 스택에서 오브젝트를 꺼낸다.
-	 *
-	 * @return 스택에서 꺼낸 오브젝트
-	 * @throws StackEmptyException 스택이 비어있을 때 던진다.
-	 */
-	public Object pop() throws StackEmptyException {
-		if (position <= 0) throw new StackEmptyException();
-		return objects[--position];
-	}
-
-	@Override
-	public String toString() {
-		return Arrays.toString(objects);
-	}
-
-	/**
 	 * MyStack을 테스트하는 main() 메서드
 	 */
 	public static void main(String[] args) {
@@ -66,5 +39,34 @@ public class MyStack {
 		} catch (StackOverflowException e) {
 			System.err.println("스택이 넘칩니다.");
 		}
+	}
+
+	/**
+	 * 스택에 오브젝트를 넣는다.
+	 *
+	 * @param obj 스택에 넣는 오브젝트
+	 * @throws StackOverflowException 스택의 크기를 초과할 때 던진다.
+	 */
+	public void push(Object obj) throws StackOverflowException {
+		if (position >= objects.length)
+			throw new StackOverflowException();
+		objects[position++] = obj;
+	}
+
+	/**
+	 * 스택에서 오브젝트를 꺼낸다.
+	 *
+	 * @return 스택에서 꺼낸 오브젝트
+	 * @throws StackEmptyException 스택이 비어있을 때 던진다.
+	 */
+	public Object pop() throws StackEmptyException {
+		if (position <= 0)
+			throw new StackEmptyException();
+		return objects[--position];
+	}
+
+	@Override
+	public String toString() {
+		return Arrays.toString(objects);
 	}
 }
