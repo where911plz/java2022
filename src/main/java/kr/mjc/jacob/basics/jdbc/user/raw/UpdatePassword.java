@@ -21,8 +21,10 @@ public class UpdatePassword {
     System.out.print("Update password - userId currentPassword newPassword : ");
     // 입력
     Object[] params = {scanner.nextInt(), scanner.next(), scanner.next()};
-    try (Connection con = ds.getConnection();
-         PreparedStatement ps = con.prepareStatement(
+    scanner.close();
+
+    try (Connection conn = ds.getConnection();
+         PreparedStatement ps = conn.prepareStatement(
              "update user set password=sha2(?,256) where userId=? and password=sha2(?,256)")) {
       ps.setObject(1, params[2]); // new password
       ps.setObject(2, params[0]); // userId

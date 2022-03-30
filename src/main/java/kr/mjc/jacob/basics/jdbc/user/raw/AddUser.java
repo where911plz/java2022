@@ -21,6 +21,8 @@ public class AddUser {
     System.out.print("Insert - email password name : ");
     // 입력
     String[] params = {scanner.next(), scanner.next(), scanner.next()};
+    scanner.close();
+
     try (Connection conn = ds.getConnection();
          PreparedStatement ps = conn.prepareStatement(
              "insert user(email, password, name) values(?,sha2(?,256),?)")) {

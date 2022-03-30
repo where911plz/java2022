@@ -16,8 +16,10 @@ public class ListUsers {
     UserDao userDao = new UserDaoImpl();
     Scanner scanner = new Scanner(System.in);
     System.out.print("List - count page : ");
-    List<User> userList =
-        userDao.listUsers(scanner.nextInt(), scanner.nextInt());
+    int[] params = {scanner.nextInt(), scanner.nextInt()};
+    scanner.close();
+
+    List<User> userList = userDao.listUsers(params[0], params[1]);
     log.debug(userList.toString());
   }
 }

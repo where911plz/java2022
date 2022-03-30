@@ -14,7 +14,10 @@ public class Login {
     UserDao userDao = new UserDaoImpl();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Login - email password : ");
-    User user = userDao.login(scanner.next(), scanner.next());
+    String[] params = {scanner.next(), scanner.next()};
+    scanner.close();
+
+    User user = userDao.login(params[0], params[1]);
     if (user != null)
       log.debug(user.toString());
     else

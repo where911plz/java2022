@@ -14,8 +14,13 @@ public class UpdatePassword {
     UserDao userDao = new UserDaoImpl();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Update password - userId currentPassword newPassword : ");
-    int updatedRows = userDao.updatePassword(scanner.nextInt(), scanner.next(),
-        scanner.next());
+    int userId = scanner.nextInt();
+    String currentPassword = scanner.next();
+    String newPassword = scanner.next();
+    scanner.close();
+
+    int updatedRows =
+        userDao.updatePassword(userId, currentPassword, newPassword);
     if (updatedRows >= 1)
       log.debug("수정 성공");
     else

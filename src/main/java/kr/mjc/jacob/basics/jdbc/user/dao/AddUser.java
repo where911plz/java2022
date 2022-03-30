@@ -20,6 +20,8 @@ public class AddUser {
     user.setEmail(scanner.next());
     user.setPassword(scanner.next());
     user.setName(scanner.next());
+    scanner.close();
+
     try {
       userDao.addUser(user);
       log.debug(user.toString());

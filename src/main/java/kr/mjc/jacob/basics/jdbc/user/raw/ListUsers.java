@@ -19,14 +19,16 @@ import java.util.Scanner;
  */
 @Slf4j
 public class ListUsers {
-  public static void main(String[] args) {
 
+  public static void main(String[] args) {
     DataSource ds = DataSourceFactory.getDataSource();
     Scanner scanner = new Scanner(System.in);
     System.out.print("List - count page : ");
     // 입력
     int count = scanner.nextInt();  // 목록의 갯수
     int page = scanner.nextInt(); // 페이지
+    scanner.close();
+
     int offset = (page - 1) * count;  // 목록의 시작 시점
     List<User> userList = new ArrayList<>();
     try (Connection conn = ds.getConnection();

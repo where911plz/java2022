@@ -14,7 +14,10 @@ public class GetUser {
     UserDao userDao = new UserDaoImpl();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Get - userId : ");
-    User user = userDao.getUser(scanner.nextInt());
+    int userId = scanner.nextInt();
+    scanner.close();
+
+    User user = userDao.getUser(userId);
     if (user != null)
       log.debug(user.toString());
     else

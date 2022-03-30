@@ -16,13 +16,15 @@ import java.util.Scanner;
  */
 @Slf4j
 public class GetUser {
-  public static void main(String[] args) {
 
+  public static void main(String[] args) {
     DataSource ds = DataSourceFactory.getDataSource();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Get - userId : ");
     // 입력
     int userId = scanner.nextInt();
+    scanner.close();
+
     try (Connection conn = ds.getConnection();
          PreparedStatement ps = conn.prepareStatement(
              "select userId, email, name from user where userId=?")) {

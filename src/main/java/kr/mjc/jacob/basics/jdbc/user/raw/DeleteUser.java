@@ -21,8 +21,10 @@ public class DeleteUser {
     System.out.print("Delete - userId password : ");
     // 입력
     Object[] params = {scanner.nextInt(), scanner.next()};
-    try (Connection con = ds.getConnection();
-         PreparedStatement ps = con.prepareStatement(
+    scanner.close();
+
+    try (Connection conn = ds.getConnection();
+         PreparedStatement ps = conn.prepareStatement(
              "delete from user where userId=? and password=sha2(?,256)")) {
       ps.setObject(1, params[0]);
       ps.setObject(2, params[1]);

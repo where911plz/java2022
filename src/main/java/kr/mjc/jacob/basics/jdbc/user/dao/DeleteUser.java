@@ -14,8 +14,11 @@ public class DeleteUser {
     UserDao userDao = new UserDaoImpl();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Delete - userId password : ");
+    int userId = scanner.nextInt();
+    String password = scanner.next();
+    scanner.close();
 
-    int updatedRows = userDao.deleteUser(scanner.nextInt(), scanner.next());
+    int updatedRows = userDao.deleteUser(userId, password);
     if (updatedRows >= 1)
       log.debug("삭제 완료");
     else

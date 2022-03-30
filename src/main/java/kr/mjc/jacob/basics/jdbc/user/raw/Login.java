@@ -16,13 +16,15 @@ import java.util.Scanner;
  */
 @Slf4j
 public class Login {
-  public static void main(String[] args) {
 
+  public static void main(String[] args) {
     DataSource ds = DataSourceFactory.getDataSource();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Login - email password : ");
     // 입력
     String[] params = {scanner.next(), scanner.next()};
+    scanner.close();
+
     try (Connection conn = ds.getConnection();
          PreparedStatement ps = conn.prepareStatement(
              "select userId, email, name from user where email=? and password=sha2(?,256)")) {
