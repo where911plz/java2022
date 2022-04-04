@@ -23,7 +23,7 @@ public class TVUser {
 
     // context에서 LgTV 타입의 빈을 꺼낸다.
     TV lgTV = context.getBean(LgTV.class);
-    lgTV.volumeUp();
-    lgTV.volumeDown();
+    lgTV.powerOn();
+    lgTV.powerOff();
   }
 }

@@ -18,7 +18,7 @@ public class TVUserUsingBeanFactory {
 
     // factory에서 lgTV 빈을 꺼낸다.
     TV lgTV = (TV) factory.getBean("lg");
-    lgTV.volumeUp();
-    lgTV.volumeDown();
+    lgTV.powerOn();
+    lgTV.powerOff();
   }
 }

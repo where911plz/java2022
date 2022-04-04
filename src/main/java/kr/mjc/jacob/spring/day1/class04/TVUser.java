@@ -11,8 +11,10 @@ public class TVUser {
 
     TV samsungTV = context.getBean(SamsungTV.class);
     samsungTV.volumeUp();
+    samsungTV.volumeDown();
 
     TV lgTV = context.getBean(LgTV.class);
+    lgTV.volumeUp();
     lgTV.volumeDown();
   }
 }
