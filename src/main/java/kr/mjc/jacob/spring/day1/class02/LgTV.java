@@ -2,9 +2,15 @@ package kr.mjc.jacob.spring.day1.class02;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * p.43 LgTV.java
+ */
 @Slf4j
 public class LgTV implements TV {
 
+  /**
+   * Default constructor
+   */
   public LgTV() {
     log.debug("lgTV 인스턴스 생성됨.");
   }

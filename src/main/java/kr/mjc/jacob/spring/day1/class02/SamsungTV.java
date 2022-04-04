@@ -2,9 +2,15 @@ package kr.mjc.jacob.spring.day1.class02;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * p.42 SamsungTV.java
+ */
 @Slf4j
 public class SamsungTV implements TV {
 
+  /**
+   * Default constructor
+   */
   public SamsungTV() {
     log.debug("samsungTV 인스턴스 생성됨.");
   }

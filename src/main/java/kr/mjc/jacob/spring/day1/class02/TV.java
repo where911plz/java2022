@@ -1,5 +1,8 @@
 package kr.mjc.jacob.spring.day1.class02;
 
+/**
+ * p.42 TV.java
+ */
 public interface TV {
 
   void powerOn();
