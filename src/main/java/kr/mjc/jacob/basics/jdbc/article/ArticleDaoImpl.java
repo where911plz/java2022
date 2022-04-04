@@ -4,7 +4,10 @@ import kr.mjc.jacob.basics.jdbc.DataSourceFactory;
 import kr.mjc.jacob.basics.jdbc.DbException;
 
 import javax.sql.DataSource;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,17 +101,12 @@ public class ArticleDaoImpl implements ArticleDao {
   @Override
   public void addArticle(Article article) {
     try (Connection conn = ds.getConnection();
-         PreparedStatement ps = conn.prepareStatement(ADD_ARTICLE,
-             Statement.RETURN_GENERATED_KEYS)) {
+         PreparedStatement ps = conn.prepareStatement(ADD_ARTICLE)) {
       ps.setString(1, article.getTitle());
       ps.setString(2, article.getContent());
       ps.setInt(3, article.getUserId());
       ps.setString(4, article.getName());
       ps.executeUpdate();
-
-      ResultSet rs = ps.getGeneratedKeys();
-      if (rs.next())
-        article.setArticleId(rs.getInt("insert_id"));
     } catch (SQLException e) {
       throw new DbException(e);
     }
