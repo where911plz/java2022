@@ -13,7 +13,7 @@ public class SamsungTV implements TV {
    */
   public SamsungTV(Speaker speaker) {
     this.speaker = speaker;
-    log.debug("samsungTV 인스턴스 생성됨.");
+    log.debug("samsungTV 인스턴스 생성됨. speaker 주입함.");
   }
 
   @Override
