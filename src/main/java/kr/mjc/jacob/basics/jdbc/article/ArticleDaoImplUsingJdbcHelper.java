@@ -3,7 +3,6 @@ package kr.mjc.jacob.basics.jdbc.article;
 import kr.mjc.jacob.basics.jdbc.DataSourceFactory;
 import kr.mjc.jacob.basics.jdbc.JdbcHelper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleDaoImplUsingJdbcHelper implements ArticleDao {
@@ -65,10 +64,8 @@ public class ArticleDaoImplUsingJdbcHelper implements ArticleDao {
 
   @Override
   public void addArticle(Article article) {
-    List<Integer> generatedKeys = new ArrayList<>();
-    jdbcHelper.insert(ADD_ARTICLE, generatedKeys, article.getTitle(),
-        article.getContent(), article.getUserId(), article.getName());
-    article.setArticleId(generatedKeys.get(0));
+    jdbcHelper.update(ADD_ARTICLE, article.getTitle(), article.getContent(),
+        article.getUserId(), article.getName());
   }
 
   @Override
