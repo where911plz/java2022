@@ -22,6 +22,6 @@ public class AddArticle {
     article.setName("Jacob");
     articleDao.addArticle(article);
 
-    log.debug("저장 완료. articleId={}", article.getArticleId());
+    log.debug("저장 완료");
   }
 }
