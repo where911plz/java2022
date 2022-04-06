@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
-public class ArticleDaoImplUsingSpringJdbc implements ArticleDao {
+public class ArticleDaoImplUsingJdbcTemplate implements ArticleDao {
 
   String LIST_ARTICLES = """
       select articleId, title, userId, name, cdate, udate from article
@@ -28,7 +28,7 @@ public class ArticleDaoImplUsingSpringJdbc implements ArticleDao {
 
   private final JdbcTemplate jdbcTemplate;
 
-  public ArticleDaoImplUsingSpringJdbc(JdbcTemplate jdbcTemplate) {
+  public ArticleDaoImplUsingJdbcTemplate(JdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;
   }
 

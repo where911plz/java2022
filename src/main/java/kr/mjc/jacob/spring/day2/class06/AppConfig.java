@@ -35,11 +35,11 @@ public class AppConfig {
 
   @Bean
   public ArticleDao articleDao() {
-    return new ArticleDaoImplUsingSpringJdbc(jdbcTemplate());
+    return new ArticleDaoImplUsingJdbcTemplate(jdbcTemplate());
   }
 
   @Bean
   public UserDao userDao() {
-    return new UserDaoImplUsingSpringJdbc(jdbcTemplate());
+    return new UserDaoImplUsingJdbcTemplate(jdbcTemplate());
   }
 }

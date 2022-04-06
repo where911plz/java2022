@@ -6,11 +6,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
-public class UserDaoImplUsingSpringJdbc implements UserDao {
+public class UserDaoImplUsingJdbcTemplate implements UserDao {
 
   private final JdbcTemplate jdbcTemplate;
 
-  public UserDaoImplUsingSpringJdbc(JdbcTemplate jdbcTemplate) {
+  public UserDaoImplUsingJdbcTemplate(JdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;
   }
 
