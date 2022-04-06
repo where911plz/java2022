@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class AddUser {
 
   public static void main(String[] args) {
-    UserDao userDao = new UserDaoImpl();
+    UserDao userDao = new UserDaoImplUsingRawJdbc();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Insert - email password name : ");
     User user = new User();

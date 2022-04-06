@@ -7,7 +7,7 @@ import java.util.Scanner;
 @Slf4j
 public class UpdateArticle {
   public static void main(String[] args) {
-    ArticleDao articleDao = new ArticleDaoImpl();
+    ArticleDao articleDao = new ArticleDaoImplUsingRawJdbc();
     Scanner scanner = new Scanner(System.in).useDelimiter("//");
     System.out.print("articleId// : ");
     int articleId = scanner.nextInt();

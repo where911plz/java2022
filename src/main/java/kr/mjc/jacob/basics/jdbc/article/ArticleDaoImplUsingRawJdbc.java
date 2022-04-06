@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArticleDaoImpl implements ArticleDao {
+public class ArticleDaoImplUsingRawJdbc implements ArticleDao {
 
   private static final String LIST_ARTICLES = """
       select articleId, title, userId, name, cdate, udate from article
@@ -37,7 +37,7 @@ public class ArticleDaoImpl implements ArticleDao {
   /**
    * default constructor
    */
-  public ArticleDaoImpl() {
+  public ArticleDaoImplUsingRawJdbc() {
     ds = DataSourceFactory.getDataSource();
   }
 
