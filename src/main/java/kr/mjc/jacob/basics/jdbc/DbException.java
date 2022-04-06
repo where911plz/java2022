@@ -1,5 +1,8 @@
 package kr.mjc.jacob.basics.jdbc;
 
+/**
+ * SQLException을 wrapping하기 위한 unchecked exception
+ */
 public class DbException extends RuntimeException {
   public DbException() {
   }

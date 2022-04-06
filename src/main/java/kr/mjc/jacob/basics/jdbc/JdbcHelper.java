@@ -7,6 +7,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * JDBC helper utilities
+ *
+ * @author Jacob
+ */
 @Slf4j
 public class JdbcHelper {
 

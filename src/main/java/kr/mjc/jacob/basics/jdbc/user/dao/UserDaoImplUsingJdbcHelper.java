@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Raw JDBC를 사용한 User Data Access Object
+ * JdbcHelper를 사용한 User Data Access Object
  *
  * @author Jacob
  */
