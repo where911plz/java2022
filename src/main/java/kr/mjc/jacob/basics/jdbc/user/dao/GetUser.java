@@ -11,7 +11,7 @@ import java.util.Scanner;
 @Slf4j
 public class GetUser {
   public static void main(String[] args) {
-    UserDao userDao = new UserDaoImplUsingRawJdbc();
+    UserDao userDao = new UserDaoImplUsingJdbcHelper();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Get - userId : ");
     int userId = scanner.nextInt();
