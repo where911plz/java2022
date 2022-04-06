@@ -21,8 +21,8 @@ public class TVUser {
     samsungTV.powerOn();
     samsungTV.powerOff();
 
-    // context에서 LgTV 타입의 빈을 꺼낸다.
-    TV lgTV = context.getBean(LgTV.class);
+    // context에서 lgTV 이름의 빈을 꺼낸다.
+    TV lgTV = (LgTV) context.getBean("lgTV");
     lgTV.powerOn();
     lgTV.powerOff();
   }
