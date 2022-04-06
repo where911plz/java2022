@@ -109,11 +109,9 @@ public class JdbcHelper {
    */
   private void setParameters(PreparedStatement ps, Object... params)
       throws SQLException {
-    try {
+    if (params != null) {
       for (int i = 0; i < params.length; i++)
         ps.setObject(i + 1, params[i]);
-    } catch (SQLException e) {
-      throw e;
     }
   }
 }
