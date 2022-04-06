@@ -11,7 +11,7 @@ import java.util.Scanner;
 @Slf4j
 public class Login {
   public static void main(String[] args) {
-    UserDao userDao = new UserDaoImpl();
+    UserDao userDao = new UserDaoImplUsingRawJdbc();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Login - email password : ");
     String[] params = {scanner.next(), scanner.next()};

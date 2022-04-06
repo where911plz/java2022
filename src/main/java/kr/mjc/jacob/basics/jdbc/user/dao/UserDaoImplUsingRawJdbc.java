@@ -16,7 +16,7 @@ import java.util.List;
  * @author Jacob
  */
 @Slf4j
-public class UserDaoImpl implements UserDao {
+public class UserDaoImplUsingRawJdbc implements UserDao {
 
   private static final String LIST_USERS =
       "select userId, email, name from user order by userId desc limit ?,?";
@@ -41,7 +41,7 @@ public class UserDaoImpl implements UserDao {
   /**
    * 기본 생성자. 데이터소스를 초기화한다.
    */
-  public UserDaoImpl() {
+  public UserDaoImplUsingRawJdbc() {
     ds = DataSourceFactory.getDataSource();
   }
 

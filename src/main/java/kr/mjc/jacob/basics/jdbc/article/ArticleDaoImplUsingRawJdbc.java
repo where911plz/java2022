@@ -11,33 +11,32 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArticleDaoImpl implements ArticleDao {
+public class ArticleDaoImplUsingRawJdbc implements ArticleDao {
 
-  private static final String LIST_ARTICLES = """
+  String LIST_ARTICLES = """
       select articleId, title, userId, name, cdate, udate from article
       order by articleId desc limit ?,?
       """;
 
-  private static final String GET_ARTICLE = """
+  String GET_ARTICLE = """
       select articleId, title, content, userId, name, cdate, udate from article
       where articleId=?
       """;
 
-  private static final String ADD_ARTICLE =
+  String ADD_ARTICLE =
       "insert article(title, content, userId, name) values (?,?,?,?)";
 
-  private static final String UPDATE_ARTICLE =
+  String UPDATE_ARTICLE =
       "update article set title=?, content=? where articleId=? and userId=?";
 
-  private static final String DELETE_ARTICLE =
-      "delete from article where articleId=? and userId=?";
+  String DELETE_ARTICLE = "delete from article where articleId=? and userId=?";
 
   private final DataSource ds;
 
   /**
    * default constructor
    */
-  public ArticleDaoImpl() {
+  public ArticleDaoImplUsingRawJdbc() {
     ds = DataSourceFactory.getDataSource();
   }
 

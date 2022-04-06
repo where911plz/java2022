@@ -1,6 +1,10 @@
-package kr.mjc.jacob.basics.jdbc.article;
+package kr.mjc.jacob.spring.day2.class06;
 
+import kr.mjc.jacob.basics.jdbc.article.Article;
+import kr.mjc.jacob.basics.jdbc.article.ArticleDao;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
 import java.util.Scanner;
@@ -8,7 +12,10 @@ import java.util.Scanner;
 @Slf4j
 public class ListArticles {
   public static void main(String[] args) {
-    ArticleDao articleDao = new ArticleDaoImplUsingRawJdbc();
+    ApplicationContext context =
+        new AnnotationConfigApplicationContext(AppConfig.class);
+    ArticleDao articleDao = context.getBean(ArticleDao.class);
+
     Scanner scanner = new Scanner(System.in);
     System.out.print("count page : ");
     int count = scanner.nextInt();
