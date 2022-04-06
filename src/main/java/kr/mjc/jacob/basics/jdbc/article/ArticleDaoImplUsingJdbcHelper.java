@@ -55,7 +55,7 @@ public class ArticleDaoImplUsingJdbcHelper implements ArticleDao {
       Article article = new Article();
       article.setArticleId(rs.getInt("articleId"));
       article.setTitle(rs.getString("title"));
-      article.setTitle(rs.getString("content"));
+      article.setContent(rs.getString("content"));
       article.setUserId(rs.getInt("userId"));
       article.setName(rs.getString("name"));
       article.setCdate(rs.getString("cdate"));
