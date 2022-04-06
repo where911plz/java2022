@@ -13,7 +13,7 @@ import java.util.Scanner;
 @Slf4j
 public class ListUsers {
   public static void main(String[] args) {
-    UserDao userDao = new UserDaoImplUsingRawJdbc();
+    UserDao userDao = new UserDaoImplUsingJdbcHelper();
     Scanner scanner = new Scanner(System.in);
     System.out.print("List - count page : ");
     int[] params = {scanner.nextInt(), scanner.nextInt()};

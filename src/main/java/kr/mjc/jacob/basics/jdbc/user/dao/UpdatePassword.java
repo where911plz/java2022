@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class UpdatePassword {
 
   public static void main(String[] args) {
-    UserDao userDao = new UserDaoImplUsingRawJdbc();
+    UserDao userDao = new UserDaoImplUsingJdbcHelper();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Update password - userId currentPassword newPassword : ");
     int userId = scanner.nextInt();

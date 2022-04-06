@@ -8,7 +8,7 @@ import java.util.Scanner;
 @Slf4j
 public class ListArticles {
   public static void main(String[] args) {
-    ArticleDao articleDao = new ArticleDaoImplUsingRawJdbc();
+    ArticleDao articleDao = new ArticleDaoImplUsingJdbcHelper();
     Scanner scanner = new Scanner(System.in);
     System.out.print("count page : ");
     int count = scanner.nextInt();

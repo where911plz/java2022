@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class DeleteUser {
 
   public static void main(String[] args) {
-    UserDao userDao = new UserDaoImplUsingRawJdbc();
+    UserDao userDao = new UserDaoImplUsingJdbcHelper();
     Scanner scanner = new Scanner(System.in);
     System.out.print("Delete - userId password : ");
     int userId = scanner.nextInt();
