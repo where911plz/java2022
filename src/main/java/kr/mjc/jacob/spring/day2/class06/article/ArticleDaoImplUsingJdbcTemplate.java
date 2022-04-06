@@ -1,4 +1,4 @@
-package kr.mjc.jacob.spring.day2.class06;
+package kr.mjc.jacob.spring.day2.class06.article;
 
 import kr.mjc.jacob.basics.jdbc.article.Article;
 import kr.mjc.jacob.basics.jdbc.article.ArticleDao;

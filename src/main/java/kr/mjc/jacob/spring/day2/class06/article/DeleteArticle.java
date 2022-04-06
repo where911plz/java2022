@@ -1,6 +1,7 @@
-package kr.mjc.jacob.spring.day2.class06;
+package kr.mjc.jacob.spring.day2.class06.article;
 
 import kr.mjc.jacob.basics.jdbc.article.ArticleDao;
+import kr.mjc.jacob.spring.day2.class06.AppConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

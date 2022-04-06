@@ -3,6 +3,8 @@ package kr.mjc.jacob.spring.day2.class06;
 import kr.mjc.jacob.basics.jdbc.DataSourceFactory;
 import kr.mjc.jacob.basics.jdbc.article.ArticleDao;
 import kr.mjc.jacob.basics.jdbc.user.dao.UserDao;
+import kr.mjc.jacob.spring.day2.class06.article.ArticleDaoImplUsingJdbcTemplate;
+import kr.mjc.jacob.spring.day2.class06.user.UserDaoImplUsingJdbcTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.mariadb.jdbc.MariaDbDataSource;
 import org.springframework.context.annotation.Bean;
