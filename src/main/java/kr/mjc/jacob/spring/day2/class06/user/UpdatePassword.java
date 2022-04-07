@@ -1,7 +1,6 @@
 package kr.mjc.jacob.spring.day2.class06.user;
 
 import kr.mjc.jacob.basics.jdbc.user.dao.UserDao;
-import kr.mjc.jacob.basics.jdbc.user.dao.UserDaoImplUsingJdbcHelper;
 import kr.mjc.jacob.spring.day2.class06.AppConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
@@ -27,9 +26,7 @@ public class UpdatePassword {
     String newPassword = scanner.next();
     scanner.close();
 
-    int updatedRows =
-        userDao.updatePassword(userId, currentPassword, newPassword);
-    if (updatedRows >= 1)
+    if (userDao.updatePassword(userId, currentPassword, newPassword) >= 1)
       log.debug("수정 성공");
     else
       log.debug("수정 실패"); // 회원번호가 없거나 비밀번호 틀림

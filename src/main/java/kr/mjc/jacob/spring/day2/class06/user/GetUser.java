@@ -27,6 +27,7 @@ public class GetUser {
 
     try {
       User user = userDao.getUser(userId);
+      log.debug(user.toString());
     } catch (DataAccessException e) { // 결과가 없을 경우
       log.error(e.toString());
     }

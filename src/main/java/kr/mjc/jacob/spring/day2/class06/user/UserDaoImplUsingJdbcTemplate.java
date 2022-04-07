@@ -28,6 +28,7 @@ public class UserDaoImplUsingJdbcTemplate implements UserDao {
 
   private static final String DELETE_USER =
       "delete from user where userId=? and password=sha2(?,256)";
+
   private final JdbcTemplate jdbcTemplate;
 
   public UserDaoImplUsingJdbcTemplate(JdbcTemplate jdbcTemplate) {

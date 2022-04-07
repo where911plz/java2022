@@ -33,7 +33,7 @@ public class AddUser {
       userDao.addUser(user);
       log.debug("저장 완료");
     } catch (DataAccessException e) { // 이메일 중복인 경우
-      log.error(e.toString());
+      log.error(e.getCause().toString());
     }
   }
 }
