@@ -30,9 +30,8 @@ public class UpdateArticle {
     article.setTitle(title);
     article.setContent(content);
     article.setUserId(1);
-    int updatedRows = articleDao.updateArticle(article);
 
-    if (updatedRows >= 1)
+    if (articleDao.updateArticle(article) >= 1)
       log.debug("수정 완료");
     else
       log.debug("해당 게시글이 없거나 작성자가 아님");

@@ -32,7 +32,7 @@ public class DeleteUser {
       else
         log.debug("삭제 실패");// 회원번호가 없거나 비밀번호 틀림
     } catch (DataAccessException e) { // 회원의 게시글이 있는 상태에서 회원을 지우려 함
-      log.error(e.getCause().toString());
+      log.error(e.toString());
     }
   }
 }

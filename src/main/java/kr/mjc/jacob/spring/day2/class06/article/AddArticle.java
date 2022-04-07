@@ -6,6 +6,7 @@ import kr.mjc.jacob.spring.day2.class06.AppConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.dao.DataAccessException;
 
 import java.util.Scanner;
 
@@ -28,8 +29,12 @@ public class AddArticle {
     article.setContent(content);
     article.setUserId(1);
     article.setName("Jacob");
-    articleDao.addArticle(article);
 
-    log.debug("저장 완료");
+    try {
+      articleDao.addArticle(article);
+      log.debug("저장 완료");
+    } catch (DataAccessException e) { // 회원이 없음
+      log.error(e.toString());
+    }
   }
 }

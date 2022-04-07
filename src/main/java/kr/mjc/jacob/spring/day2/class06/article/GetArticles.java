@@ -6,6 +6,7 @@ import kr.mjc.jacob.spring.day2.class06.AppConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.dao.DataAccessException;
 
 import java.util.Scanner;
 
@@ -21,10 +22,11 @@ public class GetArticles {
     int articleId = scanner.nextInt();
     scanner.close();
 
-    Article article = articleDao.getArticle(articleId);
-    if (article != null)
+    try {
+      Article article = articleDao.getArticle(articleId);
       log.debug(article.toString());
-    else
-      log.debug("해당 게시글 없음");
+    } catch (DataAccessException e) { // 게시글 없음
+      log.debug(e.toString());
+    }
   }
 }
