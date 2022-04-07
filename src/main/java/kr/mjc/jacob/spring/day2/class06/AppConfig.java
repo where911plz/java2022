@@ -3,7 +3,7 @@ package kr.mjc.jacob.spring.day2.class06;
 import kr.mjc.jacob.basics.jdbc.DataSourceFactory;
 import kr.mjc.jacob.basics.jdbc.article.ArticleDao;
 import kr.mjc.jacob.basics.jdbc.user.dao.UserDao;
-import kr.mjc.jacob.spring.day2.class06.article.ArticleDaoImplUsingJdbcTemplate;
+import kr.mjc.jacob.spring.day2.class06.article.ArticleDaoImplUsingNamedParameterJdbcTemplate;
 import kr.mjc.jacob.spring.day2.class06.user.UserDaoImplUsingNamedParameterJdbcTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.mariadb.jdbc.MariaDbDataSource;
@@ -38,18 +38,20 @@ public class AppConfig {
 
   @Bean
   public NamedParameterJdbcTemplate namedParameterJdbcTemplate() {
-    return new NamedParameterJdbcTemplate(dataSource());
+    return new NamedParameterJdbcTemplate(jdbcTemplate());
   }
 
   @Bean
   public ArticleDao articleDao() {
-    return new ArticleDaoImplUsingJdbcTemplate(jdbcTemplate());
+    // return new ArticleDaoImplUsingJdbcTemplate(jdbcTemplate());
+    return new ArticleDaoImplUsingNamedParameterJdbcTemplate(
+        namedParameterJdbcTemplate());
   }
 
   @Bean
   public UserDao userDao() {
     // return new UserDaoImplUsingJdbcTemplate(jdbcTemplate());
-    return new UserDaoImplUsingNamedParameterJdbcTemplate(jdbcTemplate(),
+    return new UserDaoImplUsingNamedParameterJdbcTemplate(
         namedParameterJdbcTemplate());
   }
 }

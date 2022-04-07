@@ -48,12 +48,12 @@ public class UserDaoImplUsingNamedParameterJdbcTemplate implements UserDao {
       new BeanPropertyRowMapper(User.class);
 
   /**
-   * jdbcTemplate과 namedParameterJdbcTemplate을 주입하는 컨스트럭터
+   * namedParameterJdbcTemplate을 주입하는 컨스트럭터
    */
-  public UserDaoImplUsingNamedParameterJdbcTemplate(JdbcTemplate jdbcTemplate,
+  public UserDaoImplUsingNamedParameterJdbcTemplate(
       NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-    this.jdbcTemplate = jdbcTemplate;
     this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+    this.jdbcTemplate = namedParameterJdbcTemplate.getJdbcTemplate();
   }
 
   /**
