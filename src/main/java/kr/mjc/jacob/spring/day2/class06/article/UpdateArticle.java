@@ -9,6 +9,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.Scanner;
 
+/**
+ * 게시글 수정
+ */
 @Slf4j
 public class UpdateArticle {
   public static void main(String[] args) {

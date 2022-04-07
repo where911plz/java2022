@@ -10,6 +10,9 @@ import org.springframework.dao.DataAccessException;
 
 import java.util.Scanner;
 
+/**
+ * 게시글 등록
+ */
 @Slf4j
 public class AddArticle {
   public static void main(String[] args) {

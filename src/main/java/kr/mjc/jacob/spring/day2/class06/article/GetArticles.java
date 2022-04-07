@@ -10,6 +10,9 @@ import org.springframework.dao.DataAccessException;
 
 import java.util.Scanner;
 
+/**
+ * 게시글 조회
+ */
 @Slf4j
 public class GetArticles {
   public static void main(String[] args) {

@@ -10,6 +10,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 게시글 목록
+ */
 @Slf4j
 public class ListArticles {
   public static void main(String[] args) {

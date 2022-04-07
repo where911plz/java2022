@@ -9,6 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * JdbcTemplate을 사용해서 UserDao 구현
+ *
+ * @author Jacob
+ */
 public class UserDaoImplUsingJdbcTemplate implements UserDao {
 
   private static final String LIST_USERS =
@@ -31,6 +36,9 @@ public class UserDaoImplUsingJdbcTemplate implements UserDao {
 
   private final JdbcTemplate jdbcTemplate;
 
+  /**
+   * jdbcTemplate을 주입하는 컨스트럭터
+   */
   public UserDaoImplUsingJdbcTemplate(JdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;
   }

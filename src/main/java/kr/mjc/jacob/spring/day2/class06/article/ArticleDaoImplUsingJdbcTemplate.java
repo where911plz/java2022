@@ -6,6 +6,11 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
+/**
+ * JdbcTemplate을 사용해서 ArticleDao 구현
+ *
+ * @author Jacob
+ */
 public class ArticleDaoImplUsingJdbcTemplate implements ArticleDao {
 
   String LIST_ARTICLES = """
@@ -28,6 +33,9 @@ public class ArticleDaoImplUsingJdbcTemplate implements ArticleDao {
 
   private final JdbcTemplate jdbcTemplate;
 
+  /**
+   * jdbcTemplate을 주입하는 컨스트럭터
+   */
   public ArticleDaoImplUsingJdbcTemplate(JdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;
   }

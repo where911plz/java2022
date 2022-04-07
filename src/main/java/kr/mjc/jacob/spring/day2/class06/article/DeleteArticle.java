@@ -8,6 +8,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.Scanner;
 
+/**
+ * 게시글 삭제
+ */
 @Slf4j
 public class DeleteArticle {
   public static void main(String[] args) {
