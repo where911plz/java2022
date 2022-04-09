@@ -1,6 +1,5 @@
 package kr.mjc.jacob.spring.day2.class06;
 
-import kr.mjc.jacob.basics.jdbc.DataSourceFactory;
 import kr.mjc.jacob.basics.jdbc.article.ArticleDao;
 import kr.mjc.jacob.basics.jdbc.user.dao.UserDao;
 import kr.mjc.jacob.spring.day2.class06.article.ArticleDaoImplUsingJdbcTemplate;
