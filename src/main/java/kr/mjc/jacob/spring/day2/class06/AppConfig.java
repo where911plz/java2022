@@ -1,6 +1,5 @@
 package kr.mjc.jacob.spring.day2.class06;
 
-import kr.mjc.jacob.basics.jdbc.DataSourceFactory;
 import kr.mjc.jacob.basics.jdbc.article.ArticleDao;
 import kr.mjc.jacob.basics.jdbc.user.dao.UserDao;
 import kr.mjc.jacob.spring.day2.class06.article.ArticleDaoImplUsingNamedParameterJdbcTemplate;
@@ -24,7 +23,7 @@ public class AppConfig {
   public DataSource dataSource() {
     Properties props = new Properties();
     try {
-      props.load(DataSourceFactory.class.getResourceAsStream("/db.properties"));
+      props.load(AppConfig.class.getResourceAsStream("/db.properties"));
       return new MariaDbDataSource(props.getProperty("url"));
     } catch (IOException | SQLException e) {
       throw new RuntimeException(e);
