@@ -23,7 +23,7 @@ public class AppConfig {
   public DataSource dataSource() {
     Properties props = new Properties();
     try {
-      props.load(DataSourceFactory.class.getResourceAsStream("/db.properties"));
+      props.load(AppConfig.class.getResourceAsStream("/db.properties"));
       return new MariaDbDataSource(props.getProperty("url"));
     } catch (IOException | SQLException e) {
       throw new RuntimeException(e);
