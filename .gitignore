@@ -2,10 +2,6 @@
 .*
 *.txt
 *.log
-gradle/
-gradlew*
-settings.gradle
 build/
-htmls/
 db.properties
 /src/test
