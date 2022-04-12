@@ -1,6 +1,6 @@
 plugins {
   id 'java'
-  id "io.freefair.lombok" version "6.4.1"
+  id "io.freefair.lombok" version "6.4.2"
 }
 
 group 'kr.mjc.jacob'
@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
   // Logback
-  implementation 'ch.qos.logback:logback-classic:1.2.11'
+  implementation 'ch.qos.logback:logback-classic:1.2.+'
 
   // MariaDB JDBC Driver
   implementation 'org.mariadb.jdbc:mariadb-java-client:3.+'
@@ -22,8 +22,8 @@ dependencies {
   implementation 'org.springframework:spring-context:5.+'
 
   // JUnit
-  testImplementation 'org.junit.jupiter:junit-jupiter-api:+'
-  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:+'
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.+'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.+'
 }
 
 test {

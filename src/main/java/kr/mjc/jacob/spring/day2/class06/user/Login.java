@@ -2,7 +2,7 @@ package kr.mjc.jacob.spring.day2.class06.user;
 
 import kr.mjc.jacob.basics.jdbc.user.User;
 import kr.mjc.jacob.basics.jdbc.user.dao.UserDao;
-import kr.mjc.jacob.spring.day2.class06.AppConfig;
+import kr.mjc.jacob.spring.day2.AppConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

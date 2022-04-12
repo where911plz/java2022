@@ -1,20 +1,25 @@
-package kr.mjc.jacob.spring.day2.class06.user;
+package kr.mjc.jacob.spring.day2.class06.dao;
 
 import kr.mjc.jacob.basics.jdbc.DbException;
 import kr.mjc.jacob.basics.jdbc.user.User;
 import kr.mjc.jacob.basics.jdbc.user.dao.UserDao;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
- * JdbcTemplate을 사용해서 UserDao 구현
+ * NamedParameterJdbcTemplate을 사용해서 UserDao 구현
  *
  * @author Jacob
  */
-public class UserDaoImplUsingJdbcTemplate implements UserDao {
+@Slf4j
+public class UserDaoUsingNamedParameter implements UserDao {
 
   private static final String LIST_USERS =
       "select userId, email, name from user order by userId desc limit ?,?";
@@ -26,7 +31,7 @@ public class UserDaoImplUsingJdbcTemplate implements UserDao {
       "select userId, email, name from user where email=? and password=sha2(?,256)";
 
   private static final String ADD_USER =
-      "insert user(email, password, name) values(?,sha2(?,256),?)";
+      "insert user(email, password, name) values(:email, sha2(:password,256), :name)";
 
   private static final String UPDATE_PASSWORD =
       "update user set password=sha2(?,256) where userId=? and password=sha2(?,256)";
@@ -36,11 +41,22 @@ public class UserDaoImplUsingJdbcTemplate implements UserDao {
 
   private final JdbcTemplate jdbcTemplate;
 
+  private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
   /**
-   * jdbcTemplate을 주입하는 컨스트럭터
+   * resultSet을 user object로 매핑하는 매퍼
    */
-  public UserDaoImplUsingJdbcTemplate(JdbcTemplate jdbcTemplate) {
-    this.jdbcTemplate = jdbcTemplate;
+  private final RowMapper<User> userRowMapper =
+      new BeanPropertyRowMapper(User.class);
+
+  /**
+   * namedParameterJdbcTemplate을 주입하는 컨스트럭터
+   */
+  public UserDaoUsingNamedParameter(
+      NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
+    this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+    this.jdbcTemplate = namedParameterJdbcTemplate.getJdbcTemplate();
+    log.info("{} constructed", getClass().getSimpleName());
   }
 
   /**
@@ -53,8 +69,7 @@ public class UserDaoImplUsingJdbcTemplate implements UserDao {
   @Override
   public List<User> listUsers(int count, int page) {
     int offset = (page - 1) * count;  // 목록의 시작 시점
-    return jdbcTemplate.query(LIST_USERS, (rs, rowNum) -> map(rs, rowNum),
-        offset, count);
+    return jdbcTemplate.query(LIST_USERS, userRowMapper, offset, count);
   }
 
   /**
@@ -65,8 +80,7 @@ public class UserDaoImplUsingJdbcTemplate implements UserDao {
    */
   @Override
   public User getUser(int userId) {
-    return jdbcTemplate.queryForObject(GET_USER,
-        (rs, rowNum) -> map(rs, rowNum), userId);
+    return jdbcTemplate.queryForObject(GET_USER, userRowMapper, userId);
   }
 
   /**
@@ -78,8 +92,7 @@ public class UserDaoImplUsingJdbcTemplate implements UserDao {
    */
   @Override
   public User login(String email, String password) {
-    return jdbcTemplate.queryForObject(LOGIN, (rs, rowNum) -> map(rs, rowNum),
-        email, password);
+    return jdbcTemplate.queryForObject(LOGIN, userRowMapper, email, password);
   }
 
   /**
@@ -90,8 +103,8 @@ public class UserDaoImplUsingJdbcTemplate implements UserDao {
    */
   @Override
   public void addUser(User user) throws DbException {
-    jdbcTemplate.update(ADD_USER, user.getEmail(), user.getPassword(),
-        user.getName());
+    SqlParameterSource params = new BeanPropertySqlParameterSource(user);
+    namedParameterJdbcTemplate.update(ADD_USER, params);
   }
 
   /**
@@ -119,16 +132,5 @@ public class UserDaoImplUsingJdbcTemplate implements UserDao {
   @Override
   public int deleteUser(int userId, String password) throws DbException {
     return jdbcTemplate.update(DELETE_USER, userId, password);
-  }
-
-  /**
-   * resultSet을 user object로 매핑한다.
-   */
-  private User map(ResultSet rs, int rowNum) throws SQLException {
-    User user = new User();
-    user.setUserId(rs.getInt("userId"));
-    user.setEmail(rs.getString("email"));
-    user.setName(rs.getString("name"));
-    return user;
   }
 }

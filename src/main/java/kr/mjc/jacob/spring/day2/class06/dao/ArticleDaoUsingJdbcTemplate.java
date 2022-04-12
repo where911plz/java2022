@@ -1,8 +1,10 @@
-package kr.mjc.jacob.spring.day2.class06.article;
+package kr.mjc.jacob.spring.day2.class06.dao;
 
 import kr.mjc.jacob.basics.jdbc.article.Article;
 import kr.mjc.jacob.basics.jdbc.article.ArticleDao;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -11,7 +13,8 @@ import java.util.List;
  *
  * @author Jacob
  */
-public class ArticleDaoImplUsingJdbcTemplate implements ArticleDao {
+@Slf4j
+public class ArticleDaoUsingJdbcTemplate implements ArticleDao {
 
   String LIST_ARTICLES = """
       select articleId, title, userId, name, cdate, udate from article
@@ -36,8 +39,9 @@ public class ArticleDaoImplUsingJdbcTemplate implements ArticleDao {
   /**
    * jdbcTemplate을 주입하는 컨스트럭터
    */
-  public ArticleDaoImplUsingJdbcTemplate(JdbcTemplate jdbcTemplate) {
+  public ArticleDaoUsingJdbcTemplate(JdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;
+    log.info("{} constructed", getClass().getSimpleName());
   }
 
   @Override

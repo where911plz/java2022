@@ -1,5 +1,6 @@
 package kr.mjc.jacob.spring.day1.class04;
 
+import kr.mjc.jacob.spring.day1.class02.TV;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -7,12 +8,12 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
   @Bean
-  public SonySpeaker sonySpeaker() {
+  public Speaker sonySpeaker() {
     return new SonySpeaker();
   }
 
   @Bean
-  public AppleSpeaker appleSpeaker() {
+  public Speaker appleSpeaker() {
     return new AppleSpeaker();
   }
 
@@ -20,7 +21,7 @@ public class AppConfig {
    * Constructor-based dependency injection
    */
   @Bean
-  public SamsungTV samsungTV() {
+  public TV samsungTV() {
     return new SamsungTV(sonySpeaker());
   }
 
@@ -28,7 +29,7 @@ public class AppConfig {
    * Setter-based dependency injection
    */
   @Bean
-  public LgTV lgTV() {
+  public TV lgTV() {
     LgTV lgTV = new LgTV();
     lgTV.setSpeaker(appleSpeaker());
     return lgTV;
