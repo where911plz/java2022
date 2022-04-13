@@ -3,6 +3,7 @@ package kr.mjc.jacob.spring.day2.class06.dao;
 import kr.mjc.jacob.basics.jdbc.user.User;
 import kr.mjc.jacob.basics.jdbc.user.dao.UserDao;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.ResultSet;
@@ -88,10 +89,10 @@ public class UserDaoUsingJdbcTemplate implements UserDao {
    * 회원 가입
    *
    * @param user 회원정보
-   * @ 이메일 중복으로 회원가입 실패 시
+   * @throws DataAccessException 이메일 중복으로 회원가입 실패 시
    */
   @Override
-  public void addUser(User user) {
+  public void addUser(User user) throws DataAccessException {
     jdbcTemplate.update(ADD_USER, user.getEmail(), user.getPassword(),
         user.getName());
   }
@@ -117,9 +118,11 @@ public class UserDaoUsingJdbcTemplate implements UserDao {
    * @param userId   회원번호
    * @param password 비밀번호
    * @return 삭제 성공시 1, 회원번호가 없거나 비밀번호가 틀리면 0
+   * @throws DataAccessException 게시글이 있는 사용자를 삭제하려고 할 때
    */
   @Override
-  public int deleteUser(int userId, String password) {
+  public int deleteUser(int userId, String password)
+      throws DataAccessException {
     return jdbcTemplate.update(DELETE_USER, userId, password);
   }
 
