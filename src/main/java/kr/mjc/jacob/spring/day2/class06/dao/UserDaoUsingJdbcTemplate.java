@@ -5,7 +5,6 @@ import kr.mjc.jacob.basics.jdbc.user.User;
 import kr.mjc.jacob.basics.jdbc.user.dao.UserDao;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

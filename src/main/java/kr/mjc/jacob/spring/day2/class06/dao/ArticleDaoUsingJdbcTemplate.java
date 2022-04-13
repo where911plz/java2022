@@ -4,7 +4,6 @@ import kr.mjc.jacob.basics.jdbc.article.Article;
 import kr.mjc.jacob.basics.jdbc.article.ArticleDao;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 

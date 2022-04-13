@@ -5,10 +5,12 @@ package kr.mjc.jacob.spring.day1.class02;
  */
 public class TVUser {
   public static void main(String[] args) {
-    TV tv = new SamsungTV();
-    tv.powerOn();
-    tv.powerOff();
-    tv.volumeUp();
-    tv.volumeDown();
+    TV samsungTV = new SamsungTV();
+    samsungTV.powerOn();
+    samsungTV.powerOff();
+
+    TV lgTV = new LgTV();
+    lgTV.powerOn();
+    lgTV.powerOff();
   }
 }
