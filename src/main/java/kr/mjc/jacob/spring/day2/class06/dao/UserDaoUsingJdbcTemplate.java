@@ -1,6 +1,5 @@
 package kr.mjc.jacob.spring.day2.class06.dao;
 
-import kr.mjc.jacob.basics.jdbc.DbException;
 import kr.mjc.jacob.basics.jdbc.user.User;
 import kr.mjc.jacob.basics.jdbc.user.dao.UserDao;
 import lombok.extern.slf4j.Slf4j;
@@ -89,10 +88,10 @@ public class UserDaoUsingJdbcTemplate implements UserDao {
    * 회원 가입
    *
    * @param user 회원정보
-   * @throws DbException 이메일 중복으로 회원가입 실패 시
+   * @ 이메일 중복으로 회원가입 실패 시
    */
   @Override
-  public void addUser(User user) throws DbException {
+  public void addUser(User user) {
     jdbcTemplate.update(ADD_USER, user.getEmail(), user.getPassword(),
         user.getName());
   }
@@ -120,7 +119,7 @@ public class UserDaoUsingJdbcTemplate implements UserDao {
    * @return 삭제 성공시 1, 회원번호가 없거나 비밀번호가 틀리면 0
    */
   @Override
-  public int deleteUser(int userId, String password) throws DbException {
+  public int deleteUser(int userId, String password) {
     return jdbcTemplate.update(DELETE_USER, userId, password);
   }
 
